@@ -15,7 +15,7 @@
   let isSeeking = false;
   let hasMetadata = false;
   let pendingSeek = false;
-  let objectPosition = 58;
+  let objectPosition = window.matchMedia("(max-width: 840px)").matches ? 68 : 70;
   let seekWatchdog = null;
 
   function clamp(value, min, max) {
@@ -86,7 +86,7 @@
     const timeOffset = (delta / window.innerWidth) * SENSITIVITY * video.duration;
     targetTime = clamp(targetTime + timeOffset, 0, video.duration);
 
-    objectPosition = clamp(objectPosition + (delta / window.innerWidth) * 18, 45, 72);
+    objectPosition = clamp(objectPosition + (delta / window.innerWidth) * 14, 62, 82);
     video.style.objectPosition = `${objectPosition}% center`;
 
     updateReadout();

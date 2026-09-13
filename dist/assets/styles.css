@@ -46,7 +46,7 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 58% center;
+  object-position: 70% center;
   background: #111;
   transform: scale(1.01);
   transition: object-position 120ms linear;
@@ -58,8 +58,8 @@ button {
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(circle at 70% 50%, rgba(255, 107, 74, 0.2), transparent 28%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.84) 0%, rgba(0, 0, 0, 0.42) 43%, rgba(0, 0, 0, 0.16) 100%),
+    radial-gradient(circle at 76% 50%, rgba(255, 107, 74, 0.16), transparent 26%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.5) 42%, rgba(0, 0, 0, 0.12) 100%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.78));
 }
 
@@ -385,7 +385,7 @@ h2 {
 }
 
 .item-meta,
-.project-item span {
+.project-topline span {
   color: var(--cyan);
   font-size: 14px;
   font-variant-numeric: tabular-nums;
@@ -443,6 +443,40 @@ li {
 .project-item {
   padding: clamp(22px, 4vw, 38px);
   border-radius: 8px;
+}
+
+.project-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 14px;
+  border: 1px solid rgba(246, 241, 232, 0.34);
+  border-radius: 999px;
+  color: var(--ink);
+  background: rgba(246, 241, 232, 0.08);
+  font-size: 13px;
+  white-space: nowrap;
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.project-link:hover {
+  color: var(--night);
+  background: var(--acid);
+  border-color: var(--acid);
+}
+
+.project-points {
+  margin-top: 14px;
+  margin-bottom: 18px;
 }
 
 .project-item strong {
@@ -516,6 +550,10 @@ li {
     font-size: 18px;
   }
 
+  .hero-video {
+    object-position: 68% center;
+  }
+
   .typewriter {
     min-height: 96px;
   }
@@ -549,6 +587,11 @@ li {
 
   .experience-item {
     gap: 14px;
+  }
+
+  .project-topline {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .skills-grid > div {
