@@ -15,8 +15,7 @@
   let isSeeking = false;
   let hasMetadata = false;
   let pendingSeek = false;
-  let objectPosition = window.matchMedia("(max-width: 840px)").matches ? 74 : 82;
-  let personShift = 0;
+  let objectPosition = window.matchMedia("(max-width: 840px)").matches ? 68 : 70;
   let seekWatchdog = null;
 
   function clamp(value, min, max) {
@@ -87,10 +86,8 @@
     const timeOffset = (delta / window.innerWidth) * SENSITIVITY * video.duration;
     targetTime = clamp(targetTime + timeOffset, 0, video.duration);
 
-    objectPosition = clamp(objectPosition + (delta / window.innerWidth) * 10, 74, 90);
-    personShift = clamp(personShift + (delta / window.innerWidth) * 34, -22, 22);
+    objectPosition = clamp(objectPosition + (delta / window.innerWidth) * 14, 62, 82);
     video.style.objectPosition = `${objectPosition}% center`;
-    video.style.setProperty("--person-shift", `${personShift}px`);
 
     updateReadout();
     requestSeek();
