@@ -8,14 +8,15 @@
 
   const SENSITIVITY = 0.8;
   const INTRO_TEXT =
-    "你好，我是李梓萃。把用户洞察、AI 能力和商业目标接到同一条产品链路里，是我最擅长的工作。";
+    "你好，我是李梓萃。来自北京大学信息管理系。自主开发了3个AI产品，其中一个已有160+活跃用户。在3家互联网公司做产品经理实习，把用户洞察、AI 能力和商业化变现目标链接在一起，是我最擅长的工作。";
 
   let prevX = null;
   let targetTime = 0;
   let isSeeking = false;
   let hasMetadata = false;
   let pendingSeek = false;
-  let objectPosition = window.matchMedia("(max-width: 840px)").matches ? 68 : 70;
+  let objectPosition = window.matchMedia("(max-width: 840px)").matches ? 74 : 82;
+  let personShift = 0;
   let seekWatchdog = null;
 
   function clamp(value, min, max) {
@@ -86,8 +87,10 @@
     const timeOffset = (delta / window.innerWidth) * SENSITIVITY * video.duration;
     targetTime = clamp(targetTime + timeOffset, 0, video.duration);
 
-    objectPosition = clamp(objectPosition + (delta / window.innerWidth) * 14, 62, 82);
+    objectPosition = clamp(objectPosition + (delta / window.innerWidth) * 10, 74, 90);
+    personShift = clamp(personShift + (delta / window.innerWidth) * 34, -22, 22);
     video.style.objectPosition = `${objectPosition}% center`;
+    video.style.setProperty("--person-shift", `${personShift}px`);
 
     updateReadout();
     requestSeek();
