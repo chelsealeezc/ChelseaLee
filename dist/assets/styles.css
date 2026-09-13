@@ -41,15 +41,18 @@ button {
 
 .hero-video {
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: -2vw;
+  bottom: 0;
   z-index: 0;
-  width: 100%;
+  width: min(68vw, 880px);
   height: 100%;
-  object-fit: cover;
-  object-position: 70% center;
-  background: #111;
-  transform: scale(1.01);
-  transition: object-position 120ms linear;
+  object-fit: contain;
+  object-position: 82% center;
+  background: transparent;
+  transform: translateX(var(--person-shift, 0px)) scale(0.84);
+  transform-origin: right center;
+  transition: object-position 120ms linear, transform 120ms linear;
 }
 
 .video-shade {
@@ -58,8 +61,8 @@ button {
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(circle at 76% 50%, rgba(255, 107, 74, 0.16), transparent 26%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.5) 42%, rgba(0, 0, 0, 0.12) 100%),
+    radial-gradient(circle at 80% 50%, rgba(255, 107, 74, 0.14), transparent 28%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.62) 47%, rgba(0, 0, 0, 0.06) 100%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.78));
 }
 
@@ -342,9 +345,14 @@ h1 {
 .intro-lede {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
   color: var(--acid);
-  font-weight: 700;
+  font-size: clamp(20px, 2vw, 30px);
+  line-height: 1.34;
+}
+
+.intro-lede strong {
+  font-weight: 800;
 }
 
 .intro-band p {
@@ -453,6 +461,13 @@ li {
   margin-bottom: 18px;
 }
 
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
 .project-link {
   display: inline-flex;
   align-items: center;
@@ -551,7 +566,10 @@ li {
   }
 
   .hero-video {
-    object-position: 68% center;
+    right: -30vw;
+    width: 118vw;
+    object-position: 74% center;
+    transform: translateX(var(--person-shift, 0px)) scale(0.78);
   }
 
   .typewriter {
@@ -592,6 +610,10 @@ li {
   .project-topline {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .project-links {
+    justify-content: flex-start;
   }
 
   .skills-grid > div {
